@@ -1,0 +1,70 @@
+.App {
+  text-align: center;
+}
+
+ul{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+li{
+  display: inline-block;
+  background-color: whitesmoke;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.349);
+  min-width: 30vw;
+  padding: 10px;
+  margin: 5px;
+}
+li:hover{
+  box-shadow: 0 5px 4px rgba(22, 20, 20, 0.2);
+}
+
+.ProductContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(233, 228, 221);
+  float: left;
+  width: 60vw;
+}
+.CartContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(133, 228, 196);
+  width: 40vw;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
