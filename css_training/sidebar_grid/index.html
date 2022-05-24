@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Sidebar</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <input type="checkbox" id="homeClick" hidden />
+      <div class="navbar">
+        <label for="homeClick">
+          <i class="material-icons home-icon">menu</i>
+        </label>
+      </div>
+      <div class="sidebar">
+        <div class="logo">
+          <img src="./Assets/rp-logo.png" />
+          <label for="homeClick">
+            <i class="material-icons close-icon">close</i>
+          </label>
+        </div>
+        <div class="menu">
+          <div class="menu-item">
+            <div class="item-bar"></div>
+            <p class="deshboard">Dashboard</p>
+            <i class="material-icons">domain</i>
+          </div>
+          <div class="menu-item">
+            <div class="item-bar"></div>
+            <p class="deshboard">Product Catalogs</p>
+            <i class="material-icons">shop</i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
