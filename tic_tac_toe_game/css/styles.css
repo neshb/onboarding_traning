@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    background-color: #2C3333;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.main-container{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns:  1fr 1fr 2fr 1fr 1fr;
+}
+
+.game-display {
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin: auto;
+}
+
+.player-display {
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    margin: auto;
+}
+
+
+.board {
+    height: 40vh;
+    width: 40vw;
+    background-color: black;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 6;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.winner-display{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 6;
+    grid-row-end: -1;
+    margin: auto;
+}
+
+.box {
+    width: 100%;
+    height: 100%;
+    background-color: #EFEFEF;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+}
+
+#player-turn{
+    font-size: 2rem;
+    color: #F66B0E;
+}
+
+.box:hover{
+    cursor: pointer;
+}
+
+@media screen and (max-width: 550px) {
+    .board {
+        width: 90%;
+        background-color: black;
+        grid-column-start: 2;
+        grid-column-end: 5;
+        grid-row-start: 3;
+        grid-row-end: 6;
+    }
+  }
