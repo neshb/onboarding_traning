@@ -9,7 +9,7 @@ let b7 = document.getElementById("box7");
 let b8 = document.getElementById("box8");
 let b9 = document.getElementById("box9");
 
-const playerPlayFun = (isPlayerX) => {
+const playerStyleFun = (isPlayerX) => {
   if (isPlayerX) {
     document.getElementById("player-turn").innerHTML = "Player O";
     document.getElementById("player-turn").style.color = "#205375";
@@ -19,8 +19,10 @@ const playerPlayFun = (isPlayerX) => {
   }
 };
 
+console.log("hello world")
+
 const boxClickHandler = (box) => {
-  playerPlayFun(isPlayerX);
+  playerStyleFun(isPlayerX);
   if (isPlayerX) {
     document.getElementById(box).innerHTML = "X";
     document.getElementById(box).style.color = "#F66B0E";
