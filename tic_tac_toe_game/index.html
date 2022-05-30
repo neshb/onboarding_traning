@@ -9,28 +9,36 @@
   </head>
   <body>
     <div class="main-container">
-      <h1 class="game-display">Tic Tac Toe Game</h1>
+      <h1 class="game-display">NxN Tic Tac Toe Game</h1>
       <div class="player-display">
         <span id="player-turn">Player X</span>
       </div>
       <div class="board">
-        <div class="box" id="box1"></div>
-        <div class="box" id="box2"></div>
-        <div class="box" id="box3"></div>
-        <div class="box" id="box4"></div>
-        <div class="box" id="box5"></div>
-        <div class="box" id="box6"></div>
-        <div class="box" id="box7"></div>
-        <div class="box" id="box8"></div>
-        <div class="box" id="box9"></div>
+        <div class="box" id="box1" onclick="eventClickHelper(event)"></div>
+        <div class="box" id="box2" onclick="eventClickHelper(event)"></div>
+        <div class="box" id="box3" onclick="eventClickHelper(event)"></div>
+        <div class="box" id="box4" onclick="eventClickHelper(event)"></div>
+        <div class="box" id="box5" onclick="eventClickHelper(event)"></div>
+        <div class="box" id="box6" onclick="eventClickHelper(event)"></div>
+        <div class="box" id="box7" onclick="eventClickHelper(event)"></div>
+        <div class="box" id="box8" onclick="eventClickHelper(event)"></div>
+        <div class="box" id="box9" onclick="eventClickHelper(event)"></div>
+        <div class="box" id="box10" onclick="eventClickHelper(event)"></div>
+        <div class="box" id="box11" onclick="eventClickHelper(event)"></div>
+        <div class="box" id="box12" onclick="eventClickHelper(event)"></div>
+        <div class="box" id="box13" onclick="eventClickHelper(event)"></div>
+        <div class="box" id="box14" onclick="eventClickHelper(event)"></div>
+        <div class="box" id="box15" onclick="eventClickHelper(event)"></div>
+        <div class="box" id="box16" onclick="eventClickHelper(event)"></div>
+
       </div>
 
       <div class="winner-display">
         <span id="winnerPrint"></span> 
-        <button id="resetBtn">Reset</button>
+        <button id="resetBtn" onclick="resetGameFun()">Reset</button>
       </div>
     </div>
-    
+
     <script  src="./src/index.js">
     </script>
   </body>
