@@ -10,13 +10,12 @@ const playerO = {
   color: "#205375",
   value: "O",
 };
-const data = document.getElementsByClassName("box");
-
+const elementData = document.getElementsByClassName("box"); 
 (() => {
-  for (let i = 0; i < data.length; i++) {
-    boxes[data[i].id] = {
-      id: data[i].id,
-      value: data[i].innerHTML,
+  for (let i = 0; i < elementData.length; i++) {
+    boxes[elementData[i].id] = {
+      id: elementData[i].id,
+      value: elementData[i].innerHTML,
     };
   }
 })();
@@ -29,16 +28,13 @@ const changeValueAndColor = (id, value, color) => {
   document.getElementById(id).style.color = color;
 };
 
-// this function is only responsible for player display method 
+// this function is only responsible for player display method
 // this is called as single responsible principle
 
-const playerDisplayFunc = (isPlayerX) => {
+const playerDisplay = isPlayerX => {
   const id = "player-turn";
-  if (isPlayerX) {
-    changeValueAndColor(id, playerO.name, playerO.color);
-  } else {
-    changeValueAndColor(id, playerX.name, playerX.color);
-  }
+  if (isPlayerX) changeValueAndColor(id, playerO.name, playerO.color);
+  else changeValueAndColor(id, playerX.name, playerX.color);
 };
 
 const isBoxValue = (boxId, playerValue) => {
@@ -49,36 +45,36 @@ const isBoxValue = (boxId, playerValue) => {
   return true;
 };
 
-const boxClickHandler = (boxId) => {
+const boxClickHandler = boxId => {
   if (isPlayerX && !isBoxValue(boxId, playerX.value)) {
-    playerDisplayFunc(isPlayerX);
+    playerDisplay(isPlayerX);
     changeValueAndColor(boxId, playerX.value, playerX.color);
     isPlayerX = false;
   } else if (!isPlayerX && !isBoxValue(boxId, playerO.value)) {
-    playerDisplayFunc(isPlayerX);
+    playerDisplay(isPlayerX);
     changeValueAndColor(boxId, playerO.value, playerO.color);
     isPlayerX = true;
   }
 };
 
-const clearBoxValueFunc = () =>{
-  for (let i = 0; i < data.length; i++) {
-    data[i].innerHTML = "";
-    boxes[data[i].id] = { ...boxes[data[i].id], value: "" };
+const clearBoxValue = () => {
+  for (let i = 0; i < elementData.length; i++) {
+    elementData[i].innerHTML = "";
+    boxes[elementData[i].id] = { ...boxes[elementData[i].id], value: "" };
   }
-}
-
-const resetGameFun = () => {
-  clearBoxValueFunc();
-  changeValueAndColor("winnerPrint", "", "white");
-  isPlayerX = true;
-  playerDisplayFunc(!isPlayerX);
 };
 
-const winnerDisplayFunc = (message) => {
+const resetGame = () => {
+  clearBoxValue();
+  changeValueAndColor("winnerPrint", "", "white");
+  isPlayerX = true;
+  playerDisplay(!isPlayerX);
+};
+
+const winnerDisplay = message => {
   changeValueAndColor("winnerPrint", message, "white");
   setTimeout(() => {
-    resetGameFun();
+    resetGame();
   }, 2000);
 };
 
@@ -95,9 +91,7 @@ const checkLeftToRight = (matrix_size, player, boxArray) => {
         }
       }
     }
-    if (isWinner) {
-      return true;
-    }
+    if (isWinner) return true;
   }
   return false;
 };
@@ -115,18 +109,14 @@ const checkTopToBottom = (matrix_size, player, boxArray) => {
         }
       }
     }
-    if (isWinner) {
-      return true;
-    }
+    if (isWinner) return true;
   }
   return false;
 };
 
 const checkLeftDiagonal = (matrix_size, player, boxArray) => {
   for (let i = 0; i < boxArray.length; i = i + matrix_size + 1) {
-    if (boxArray[i].value !== player) {
-      return false;
-    }
+    if (boxArray[i].value !== player) return false;
   }
   return true;
 };
@@ -137,19 +127,17 @@ const checkRightDiagonal = (matrix_size, player, boxArray) => {
     i < boxArray.length - 1;
     i = i + matrix_size - 1
   ) {
-    if (boxArray[i].value !== player) {
-      return false;
-    }
+    if (boxArray[i].value !== player) return false;
   }
   return true;
 };
 
-const checkWinnerFun = (isPlayerX) => {
+const checkWinner = isPlayerX => {
   let player;
 
   if (!isPlayerX) player = "X";
   else player = "O";
-  const matrix_size = Math.sqrt(data.length);
+  const matrix_size = Math.sqrt(elementData.length);
   const boxArray = Object.values(boxes);
   // Checking if Player  won or not and after
   // check left to right
@@ -162,12 +150,11 @@ const checkWinnerFun = (isPlayerX) => {
   const isRightDiagonal = checkRightDiagonal(matrix_size, player, boxArray);
 
   if (isLeftRight || isTopToBottom || isLeftDiagonal || isRightDiagonal) {
-    winnerDisplayFunc(`Player ${player} won`);
+    winnerDisplay(`Player ${player} won`);
   }
 };
 
-
 const eventClickHelper = (event) => {
   boxClickHandler(event.target.id);
-  checkWinnerFun(isPlayerX);
+  checkWinner(isPlayerX);
 };
