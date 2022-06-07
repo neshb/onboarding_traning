@@ -1,5 +1,5 @@
-// import {helloWorld} from "./app.js";
-// helloWorld()
+import {helloWorld} from "./app.js";
+helloWorld()
 
 // First class function
 //  sum function is also pure function means it does not depend on other conditions
@@ -340,3 +340,15 @@ let rabbit = new Rabbit("White Rabbit");
 
 rabbit.run(5); // White Rabbit runs with speed 5.
 rabbit.hide(); // White Rabbit hides!
+
+// HOF like reduce, map, filter
+const integerArray = [1,2,3,4,5,6,7,8];
+
+const totalValue = integerArray.reduce((acc,val)=> acc+ val, 0)
+console.log("totalValue", totalValue);
+const doubleArray = integerArray.map(val => 2* val);
+console.log("doubleArray", doubleArray);
+const evenArray = integerArray.filter(val =>{
+    if(val%2 == 0) return val
+});
+console.log("evenArray", evenArray);
